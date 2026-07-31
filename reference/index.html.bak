@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>devlog.io — engineering notes</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo enhans-logo" href="index.html">
+      <img src="assets/enhans-logo.png" alt="Enhans" class="enhans-logo-img" />
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">홈</a>
+      <a href="#recent">포스트</a>
+      <a href="#">태그</a>
+      <a href="#">소개</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="검색..." />
+      </div>
+      <button class="icon-btn theme-toggle" aria-label="다크모드 전환">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge-pill">Engineering Blog · Est. 2024</span>
+    <h1>코드로 배우고, <span class="grad">실전으로 검증한</span> 엔지니어링 노트</h1>
+    <p class="sub">프로덕션에서 실제로 마주친 문제와 해결 과정을 기록합니다. Frontend, Backend, Infra, AI/ML까지 — 우리 팀의 기술적 여정을 공유합니다.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#recent">
+        포스트 둘러보기
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a class="btn btn-outline" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        뉴스레터 구독
+      </a>
+    </div>
+    <div class="hero-stats">
+      <span><span class="dot"></span>매주 새 포스트</span>
+      <span class="sep">|</span>
+      <span>8개의 글</span>
+      <span class="sep">|</span>
+      <span>4명의 저자</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Featured</h2>
+        <div class="sub">이번 주 에디터의 선택</div>
+      </div>
+    </div>
+
+    <a class="featured-card" href="#">
+      <div class="thumb" style="background-image: linear-gradient(135deg, #93c5fd, #c4b5fd);">
+        <span class="tag-overlay">Featured</span>
+      </div>
+      <div class="content">
+        <div class="meta-row">
+          <span class="cat">Frontend</span>
+          <span class="icon-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2026.07.18
+          </span>
+          <span class="icon-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+            12분
+          </span>
+        </div>
+        <h3>React Server Components 심층 분석: 새로운 렌더링 패러다임</h3>
+        <p class="excerpt">React Server Components(RSC)는 서버와 클라이언트의 경계를 재정의합니다. 실제 프로덕션 환경에서 RSC를 어떻게 활용하고, 어떤 함정을 피해야 하는지 살펴봅니다.</p>
+        <div class="tag-row">
+          <span class="tag">#React</span>
+          <span class="tag">#Next.js</span>
+          <span class="tag">#Performance</span>
+        </div>
+        <div class="author-row">
+          <span class="avatar">JK</span>
+          <span>
+            <div class="name">Jaewon Kim</div>
+            <div class="role">Senior Frontend Engineer</div>
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section" id="recent">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>최근 포스트</h2>
+        <div class="sub">가장 최근에 발행된 글들</div>
+      </div>
+      <a class="view-all" href="#">
+        전체 보기
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="post-grid">
+
+      <a class="post-card" href="#">
+        <div class="thumb" style="background-image: linear-gradient(135deg, #93c5fd, #c4b5fd);"><span class="tag-overlay">Frontend</span></div>
+        <div class="body">
+          <div class="meta-row">
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026.07.18
+            </span>
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              12분 읽기
+            </span>
+          </div>
+          <h3>React Server Components 심층 분석: 새로운 렌더링 패러다임</h3>
+          <p class="excerpt">React Server Components(RSC)는 서버와 클라이언트의 경계를 재정의합니다. 실제 프로덕션 환경에서 RSC를...</p>
+          <div class="tag-row">
+            <span class="tag">#React</span>
+            <span class="tag">#Next.js</span>
+            <span class="tag">#Performance</span>
+          </div>
+          <div class="author-row">
+            <span class="avatar">JK</span>
+            <span class="name">Jaewon Kim</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="#">
+        <div class="thumb" style="background-image: linear-gradient(135deg, #fdba74, #f9a8d4);"><span class="tag-overlay">Backend</span></div>
+        <div class="body">
+          <div class="meta-row">
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026.07.14
+            </span>
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              9분 읽기
+            </span>
+          </div>
+          <h3>Rust vs Go: 실전 백엔드 벤치마크 그리고 우리가 선택한 것</h3>
+          <p class="excerpt">10만 RPS를 견뎌야 하는 결제 게이트웨이를 만들며 Rust(axum)와 Go(fiber)를 비교했습니다. 처리량, 지연 시간...</p>
+          <div class="tag-row">
+            <span class="tag">#Rust</span>
+            <span class="tag">#Go</span>
+            <span class="tag">#Backend</span>
+          </div>
+          <div class="author-row">
+            <span class="avatar">SP</span>
+            <span class="name">Suyeon Park</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="#">
+        <div class="thumb" style="background-image: linear-gradient(135deg, #6ee7b7, #a7f3d0);"><span class="tag-overlay">Backend</span></div>
+        <div class="body">
+          <div class="meta-row">
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026.07.10
+            </span>
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              15분 읽기
+            </span>
+          </div>
+          <h3>PostgreSQL 인덱스, 정말 이해하고 있나요?</h3>
+          <p class="excerpt">B-tree, GIN, BRIN, partial index. 각 인덱스가 어떤 쿼리 패턴에 최적화되어 있는지, 그리고 EXPLAIN 결과를...</p>
+          <div class="tag-row">
+            <span class="tag">#PostgreSQL</span>
+            <span class="tag">#Database</span>
+            <span class="tag">#Performance</span>
+          </div>
+          <div class="author-row">
+            <span class="avatar">ML</span>
+            <span class="name">Minjun Lee</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="#">
+        <div class="thumb" style="background-image: linear-gradient(135deg, #d8b4fe, #f9a8d4);"><span class="tag-overlay">Infrastructure</span></div>
+        <div class="body">
+          <div class="meta-row">
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026.07.05
+            </span>
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              11분 읽기
+            </span>
+          </div>
+          <h3>쿠버네티스 클러스터 비용을 40% 절감한 방법</h3>
+          <p class="excerpt">리소스 요청/제한 재설정, Spot 인스턴스 활용, Karpenter 도입까지. 프로덕션 클러스터에서 검증된 비...</p>
+          <div class="tag-row">
+            <span class="tag">#Kubernetes</span>
+            <span class="tag">#DevOps</span>
+            <span class="tag">#AWS</span>
+          </div>
+          <div class="author-row">
+            <span class="avatar">HC</span>
+            <span class="name">Hyunwoo Choi</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="#">
+        <div class="thumb" style="background-image: linear-gradient(135deg, #a5b4fc, #93c5fd);"><span class="tag-overlay">Frontend</span></div>
+        <div class="body">
+          <div class="meta-row">
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026.06.28
+            </span>
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              6분 읽기
+            </span>
+          </div>
+          <h3>TypeScript satisfies 연산자, 언제 어떻게 쓰나</h3>
+          <p class="excerpt">as와 명시적 타입 애노테이션의 중간 지대. satisfies가 왜 등장했고, 실무에서 어떤 순간에 진가를 발휘하는지 예...</p>
+          <div class="tag-row">
+            <span class="tag">#TypeScript</span>
+            <span class="tag">#Frontend</span>
+          </div>
+          <div class="author-row">
+            <span class="avatar">JK</span>
+            <span class="name">Jaewon Kim</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="#">
+        <div class="thumb" style="background-image: linear-gradient(135deg, #6ee7b7, #86efac);"><span class="tag-overlay">Infrastructure</span></div>
+        <div class="body">
+          <div class="meta-row">
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026.06.22
+            </span>
+            <span class="icon-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              10분 읽기
+            </span>
+          </div>
+          <h3>OpenTelemetry로 분산 추적 시작하기</h3>
+          <p class="excerpt">MSA 환경에서 요청이 어떤 서비스를 거쳐 가는지, 어디서 병목이 생기는지. OTel로 통일된 추적 파이프라인을 구...</p>
+          <div class="tag-row">
+            <span class="tag">#Observability</span>
+            <span class="tag">#Backend</span>
+            <span class="tag">#DevOps</span>
+          </div>
+          <div class="author-row">
+            <span class="avatar">SP</span>
+            <span class="name">Suyeon Park</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="features-row">
+      <div class="feature-item">
+        <div class="icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+        </div>
+        <h3>심층 분석</h3>
+        <p>표면적인 튜토리얼이 아닌, 원리와 트레이드오프까지 다룹니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3>실전 검증</h3>
+        <p>프로덕션에서 실제로 겪은 문제와 해결 과정을 공유합니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>다양한 관점</h3>
+        <p>Frontend, Backend, Infra, AI/ML 각 분야의 전문가가 참여합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html">
+        <span class="mark">&lt;/&gt;</span>
+        <span class="name">devlog.io</span>
+      </a>
+      <p>프로덕션에서 검증된 엔지니어링 인사이트를 매주 발행합니다.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>사이트</h4>
+        <a href="index.html">홈</a>
+        <a href="#recent">포스트</a>
+        <a href="#">태그</a>
+        <a href="#">소개</a>
+      </div>
+      <div class="footer-col">
+        <h4>소셜</h4>
+        <a href="#">GitHub</a>
+        <a href="#">Twitter</a>
+        <a href="#">RSS</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

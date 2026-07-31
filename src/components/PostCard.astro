@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+  variant?: "featured" | "grid";
+}
+
+const { post, variant = "grid" } = Astro.props;
+const { title, date, readTime, excerpt, category, tags, thumbnail, authorName, authorInitials, authorRole } = post.data;
+
+function formatDate(d: Date) {
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(d.getUTCDate()).padStart(2, "0");
+  return `${y}.${m}.${day}`;
+}
+
+const readTimeLabel = variant === "featured" ? `${readTime}분` : `${readTime}분 읽기`;
+const href = `/posts/${post.slug}/`;
+---
+{variant === "featured" ? (
+  <a class="featured-card" href={href}>
+    <div class="thumb">
+      <img src={thumbnail} alt={title} loading="lazy" />
+    </div>
+    <div class="content">
+      <div class="meta-row">
+        <span class="cat">{category}</span>
+        <span class="icon-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {formatDate(date)}
+        </span>
+        <span class="icon-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          {readTimeLabel}
+        </span>
+      </div>
+      <h3>{title}</h3>
+      <p class="excerpt">{excerpt}</p>
+      <div class="tag-row">
+        {tags.map((tag) => <span class="tag">#{tag}</span>)}
+      </div>
+      <div class="author-row">
+        <span class="avatar">{authorInitials}</span>
+        <span>
+          <div class="name">{authorName}</div>
+          {authorRole && <div class="role">{authorRole}</div>}
+        </span>
+      </div>
+    </div>
+  </a>
+) : (
+  <a class="post-card" href={href} data-category={category}>
+    <div class="thumb">
+      <img src={thumbnail} alt={title} loading="lazy" />
+    </div>
+    <div class="body">
+      <div class="meta-row">
+        <span class="cat">{category}</span>
+        <span class="icon-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {formatDate(date)}
+        </span>
+        <span class="icon-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          {readTimeLabel}
+        </span>
+      </div>
+      <h3>{title}</h3>
+      <p class="excerpt">{excerpt}</p>
+      <div class="tag-row">
+        {tags.map((tag) => <span class="tag">#{tag}</span>)}
+      </div>
+      <div class="author-row">
+        <span class="avatar">{authorInitials}</span>
+        <span class="name">{authorName}</span>
+      </div>
+    </div>
+  </a>
+)}

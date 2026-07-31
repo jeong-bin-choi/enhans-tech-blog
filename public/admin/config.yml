@@ -1,0 +1,45 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "포스트"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "읽는 시간(분)", name: "readTime", widget: "number", value_type: "int" }
+      - { label: "요약", name: "excerpt", widget: "text" }
+      - label: "카테고리 (직무)"
+        name: "category"
+        widget: "select"
+        options:
+          - "AI/ML"
+          - "Client (Android)"
+          - "Client (iOS)"
+          - "Data Analysis"
+          - "Data Engineering"
+          - "Developer Relations"
+          - "DevOps / Server Platform"
+          - "Frontend"
+          - "Node.js"
+          - "QA"
+          - "Security"
+          - "Server"
+          - "Technical Program Manager"
+          - "Technical Writing"
+      - { label: "태그", name: "tags", widget: "list" }
+      - { label: "썸네일", name: "thumbnail", widget: "image" }
+      - { label: "작성자 이름", name: "authorName", widget: "string" }
+      - { label: "작성자 이니셜", name: "authorInitials", widget: "string", hint: "아바타에 표시될 2글자 (예: JK)" }
+      - { label: "작성자 직함", name: "authorRole", widget: "string", required: false }
+      - { label: "Featured로 노출", name: "featured", widget: "boolean", default: false }
+      - { label: "본문", name: "body", widget: "markdown" }

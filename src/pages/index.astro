@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import FeaturesRow from "../components/FeaturesRow.astro";
+import PostCard from "../components/PostCard.astro";
+import JobFilter from "../components/JobFilter.astro";
+
+const allPosts = await getCollection("posts");
+const sorted = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const featuredPost = sorted.find((p) => p.data.featured) ?? sorted[0];
+const recentPosts = sorted.filter((p) => p.slug !== featuredPost.slug);
+---
+<BaseLayout title="devlog.io — engineering notes">
+  <Hero />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Featured</h2>
+          <div class="sub">이번 주 에디터의 선택</div>
+        </div>
+      </div>
+      <PostCard post={featuredPost} variant="featured" />
+    </div>
+  </section>
+
+  <section class="section" id="recent">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>전체 포스트</h2>
+          <div class="sub">가장 최근에 발행된 글들</div>
+        </div>
+        <a class="view-all" href="/#recent">
+          전체 보기
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+      <div class="posts-layout">
+        <JobFilter />
+        <div class="post-grid">
+          {recentPosts.map((post) => <PostCard post={post} variant="grid" />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FeaturesRow />
+</BaseLayout>

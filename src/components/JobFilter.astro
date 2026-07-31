@@ -1,0 +1,26 @@
+---
+const categories = [
+  "AI/ML",
+  "Client (Android)",
+  "Client (iOS)",
+  "Data Analysis",
+  "Data Engineering",
+  "Developer Relations",
+  "DevOps / Server Platform",
+  "Frontend",
+  "Node.js",
+  "QA",
+  "Security",
+  "Server",
+  "Technical Program Manager",
+  "Technical Writing",
+];
+---
+<aside class="job-filter" aria-label="직무별 필터">
+  {categories.map((cat) => (
+    <label class="job-filter-item">
+      <input type="checkbox" value={cat} />
+      <span>{cat}</span>
+    </label>
+  ))}
+</aside>

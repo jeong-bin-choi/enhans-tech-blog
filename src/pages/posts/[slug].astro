@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, date, readTime, category, tags, thumbnail, authorName, authorInitials, authorRole } = post.data;
+
+function formatDate(d: Date) {
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(d.getUTCDate()).padStart(2, "0");
+  return `${y}.${m}.${day}`;
+}
+---
+<BaseLayout title={`${title} — devlog.io`}>
+  <section class="section post-detail-header">
+    <div class="wrap">
+      <div class="meta-row">
+        <span class="cat">{category}</span>
+        <span class="icon-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {formatDate(date)}
+        </span>
+        <span class="icon-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          {readTime}분 읽기
+        </span>
+      </div>
+      <h1>{title}</h1>
+      <div class="tag-row">
+        {tags.map((tag) => <span class="tag">#{tag}</span>)}
+      </div>
+      <div class="post-detail-thumb">
+        <img src={thumbnail} alt={title} loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <article class="post-detail-body">
+    <div class="wrap">
+      <Content />
+      <div class="author-row">
+        <span class="avatar">{authorInitials}</span>
+        <span>
+          <div class="name">{authorName}</div>
+          {authorRole && <div class="role">{authorRole}</div>}
+        </span>
+      </div>
+      <a class="back-link" href="/#recent">← 목록으로 돌아가기</a>
+    </div>
+  </article>
+</BaseLayout>
