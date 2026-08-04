@@ -22,10 +22,10 @@
     var featuredEl = document.getElementById("featured");
     var PAGE_SIZE = 6;
     var currentPage = 1;
+    var activeQuery = "";
 
     var updateSearchModeSections = function () {
-      var query = searchInput ? searchInput.value.trim() : "";
-      var searching = query.length > 0;
+      var searching = activeQuery.length > 0;
       if (heroEl) heroEl.style.display = searching ? "none" : "";
       if (featuredEl) featuredEl.style.display = searching ? "none" : "";
     };
@@ -35,7 +35,7 @@
         var checked = Array.prototype.filter
           .call(filterCheckboxes, function (cb) { return cb.checked; })
           .map(function (cb) { return cb.value; });
-        var query = searchInput ? searchInput.value.trim().toLowerCase() : "";
+        var query = activeQuery.toLowerCase();
         return postCards.filter(function (card) {
           var matchesCategory = !checked.length || checked.indexOf(card.getAttribute("data-category")) !== -1;
           var matchesSearch = !query || card.textContent.toLowerCase().indexOf(query) !== -1;
@@ -79,7 +79,10 @@
       });
 
       if (searchInput) {
-        searchInput.addEventListener("input", function () {
+        searchInput.addEventListener("keydown", function (e) {
+          if (e.key !== "Enter") return;
+          e.preventDefault();
+          activeQuery = searchInput.value.trim();
           currentPage = 1;
           updateSearchModeSections();
           update();
