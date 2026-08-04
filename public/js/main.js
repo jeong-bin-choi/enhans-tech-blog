@@ -1,4 +1,11 @@
 (function () {
+  // Land on the hero, not wherever a stray URL hash points, when the page is
+  // freshly entered (e.g. from a shared/bookmarked link that still has #recent
+  // in it). Runs before the browser's own scroll-to-fragment step.
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+
   var root = document.documentElement;
   var stored = localStorage.getItem("theme");
   if (stored) root.setAttribute("data-theme", stored);
