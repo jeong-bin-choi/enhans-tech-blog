@@ -543,7 +543,10 @@ nav.main-nav {
   .job-filter-toggle { display: flex; }
   .job-filter-list { display: none; }
   .job-filter-list.open { display: flex; }
-  .features-row { grid-template-columns: 1fr; }
+  .features-row { grid-template-columns: 1fr; gap: 20px; padding: 24px 0 32px; }
+  .feature-item { padding: 16px 0 0; }
+  .section-head h2 { font-size: 1.4rem; }
+  .section-head .sub { font-size: 0.85rem; }
   .sub-main { font-size: 1.7rem; white-space: normal; }
   nav.main-nav { display: none; }
   .header-actions .nav-link { display: none; }
