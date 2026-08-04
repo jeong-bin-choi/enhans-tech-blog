@@ -17,6 +17,7 @@
     var filterCheckboxes = document.querySelectorAll(".job-filter-item input");
     var postCards = Array.prototype.slice.call(document.querySelectorAll(".post-grid .post-card"));
     var paginationEl = document.querySelector(".pagination");
+    var searchInput = document.getElementById("site-search");
     var PAGE_SIZE = 6;
     var currentPage = 1;
 
@@ -25,9 +26,11 @@
         var checked = Array.prototype.filter
           .call(filterCheckboxes, function (cb) { return cb.checked; })
           .map(function (cb) { return cb.value; });
-        if (!checked.length) return postCards;
+        var query = searchInput ? searchInput.value.trim().toLowerCase() : "";
         return postCards.filter(function (card) {
-          return checked.indexOf(card.getAttribute("data-category")) !== -1;
+          var matchesCategory = !checked.length || checked.indexOf(card.getAttribute("data-category")) !== -1;
+          var matchesSearch = !query || card.textContent.toLowerCase().indexOf(query) !== -1;
+          return matchesCategory && matchesSearch;
         });
       };
 
@@ -65,6 +68,13 @@
           update();
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          currentPage = 1;
+          update();
+        });
+      }
 
       update();
     }
