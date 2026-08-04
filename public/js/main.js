@@ -27,6 +27,15 @@
       });
     }
 
+    var jobFilterToggle = document.querySelector(".job-filter-toggle");
+    var jobFilterList = document.querySelector(".job-filter-list");
+    if (jobFilterToggle && jobFilterList) {
+      jobFilterToggle.addEventListener("click", function () {
+        jobFilterToggle.classList.toggle("open");
+        jobFilterList.classList.toggle("open");
+      });
+    }
+
     var filterCheckboxes = document.querySelectorAll(".job-filter-item input");
     var postCards = Array.prototype.slice.call(document.querySelectorAll(".post-grid .post-card"));
     var paginationEl = document.querySelector(".pagination");

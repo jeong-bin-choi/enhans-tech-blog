@@ -337,12 +337,29 @@ nav.main-nav {
 
 .job-filter {
   flex: 0 0 240px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
   background: var(--tag-bg);
   border-radius: 12px;
   padding: 8px;
+}
+.job-filter-toggle {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background: none;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+}
+.job-filter-toggle .chev { transition: transform 0.15s ease; }
+.job-filter-toggle.open .chev { transform: rotate(180deg); }
+.job-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .job-filter-item {
   display: flex;
@@ -520,7 +537,10 @@ nav.main-nav {
 @media (max-width: 860px) {
   .featured-card { grid-template-columns: 1fr; }
   .posts-layout { flex-direction: column; }
-  .job-filter { flex: 0 0 auto; width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .job-filter { flex: 0 0 auto; width: 100%; }
+  .job-filter-toggle { display: flex; }
+  .job-filter-list { display: none; }
+  .job-filter-list.open { display: flex; }
   .features-row { grid-template-columns: 1fr; }
   .sub-main { font-size: 1.7rem; white-space: normal; }
   nav.main-nav { display: none; }

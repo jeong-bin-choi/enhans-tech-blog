@@ -12,10 +12,16 @@ const categories = [
 ];
 ---
 <aside class="job-filter" aria-label="직무별 필터">
-  {categories.map((cat) => (
-    <label class="job-filter-item">
-      <input type="checkbox" value={cat} />
-      <span>{cat}</span>
-    </label>
-  ))}
+  <button type="button" class="job-filter-toggle">
+    <span>카테고리 필터</span>
+    <svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="job-filter-list">
+    {categories.map((cat) => (
+      <label class="job-filter-item">
+        <input type="checkbox" value={cat} />
+        <span>{cat}</span>
+      </label>
+    ))}
+  </div>
 </aside>
