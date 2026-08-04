@@ -554,4 +554,6 @@ nav.main-nav {
   .tech-blog-label { display: none; }
   .header-actions { gap: 10px; }
   .site-header .bar { min-height: 60px; }
+  .hero-actions { gap: 6px; }
+  .btn { font-size: 0.75rem; padding: 8px 10px; gap: 4px; white-space: nowrap; }
 }
