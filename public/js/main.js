@@ -14,6 +14,19 @@
       });
     }
 
+    var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    var mobileMenu = document.querySelector(".mobile-menu");
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+      });
+      mobileMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.remove("open");
+        });
+      });
+    }
+
     var filterCheckboxes = document.querySelectorAll(".job-filter-item input");
     var postCards = Array.prototype.slice.call(document.querySelectorAll(".post-grid .post-card"));
     var paginationEl = document.querySelector(".pagination");

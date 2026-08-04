@@ -147,6 +147,35 @@ nav.main-nav {
 }
 .search-box input::placeholder { color: var(--text-faint); }
 
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  padding: 12px 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 0;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--text); }
+
 /* Hero */
 .hero {
   background: var(--bg);
@@ -495,6 +524,8 @@ nav.main-nav {
   .features-row { grid-template-columns: 1fr; }
   .sub-main { font-size: 1.7rem; white-space: normal; }
   nav.main-nav { display: none; }
+  .header-actions .nav-link { display: none; }
+  .mobile-menu-toggle { display: flex; }
 }
 @media (max-width: 560px) {
   .post-grid { grid-template-columns: 1fr; }
@@ -502,5 +533,4 @@ nav.main-nav {
   .site-header .bar { gap: 12px; }
   .tech-blog-label { display: none; }
   .header-actions { gap: 10px; }
-  .header-actions .nav-link { display: none; }
 }
