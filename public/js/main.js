@@ -18,8 +18,17 @@
     var postCards = Array.prototype.slice.call(document.querySelectorAll(".post-grid .post-card"));
     var paginationEl = document.querySelector(".pagination");
     var searchInput = document.getElementById("site-search");
+    var heroEl = document.querySelector(".hero");
+    var featuredEl = document.getElementById("featured");
     var PAGE_SIZE = 6;
     var currentPage = 1;
+
+    var updateSearchModeSections = function () {
+      var query = searchInput ? searchInput.value.trim() : "";
+      var searching = query.length > 0;
+      if (heroEl) heroEl.style.display = searching ? "none" : "";
+      if (featuredEl) featuredEl.style.display = searching ? "none" : "";
+    };
 
     if (postCards.length) {
       var getFilteredCards = function () {
@@ -72,6 +81,7 @@
       if (searchInput) {
         searchInput.addEventListener("input", function () {
           currentPage = 1;
+          updateSearchModeSections();
           update();
         });
       }
