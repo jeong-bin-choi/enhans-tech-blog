@@ -353,18 +353,17 @@ nav.main-nav {
   padding: 24px 0 8px;
 }
 .page-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--bg);
+  min-width: 24px;
+  padding: 4px 2px;
+  border: none;
+  background: none;
   color: var(--text-dim);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 400;
   cursor: pointer;
 }
-.page-btn:hover:not(.active) { border-color: var(--text-faint); color: var(--text); }
-.page-btn.active { background: var(--text); border-color: var(--text); color: var(--bg); }
+.page-btn:hover:not(.active) { color: var(--text); }
+.page-btn.active { color: var(--text); font-weight: 700; }
 
 .post-card {
   display: flex;
