@@ -34,7 +34,6 @@
       var renderPagination = function (totalPages) {
         if (!paginationEl) return;
         paginationEl.innerHTML = "";
-        if (totalPages <= 1) return;
         for (var i = 1; i <= totalPages; i++) {
           var pageBtn = document.createElement("button");
           pageBtn.type = "button";
