@@ -499,4 +499,8 @@ nav.main-nav {
 @media (max-width: 560px) {
   .post-grid { grid-template-columns: 1fr; }
   .search-box input { width: 80px; }
+  .site-header .bar { gap: 12px; }
+  .tech-blog-label { display: none; }
+  .header-actions { gap: 10px; }
+  .header-actions .nav-link { display: none; }
 }
