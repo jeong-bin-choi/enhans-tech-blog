@@ -217,16 +217,6 @@ nav.main-nav {
   margin: 0 0 8px;
 }
 .section-head .sub { color: var(--text); font-size: 0.95rem; font-weight: 300; }
-.section-head .view-all {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
-}
-.section-head .view-all:hover { color: var(--text); }
 
 /* Featured card */
 .featured-card {
@@ -341,14 +331,38 @@ nav.main-nav {
   cursor: pointer;
 }
 
-.post-grid {
+.posts-main {
   flex: 1;
   min-width: 0;
+}
+
+.post-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 42px;
   margin-bottom: 16px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0 8px;
+}
+.page-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.page-btn:hover:not(.active) { border-color: var(--text-faint); color: var(--text); }
+.page-btn.active { background: var(--text); border-color: var(--text); color: var(--bg); }
 
 .post-card {
   display: flex;
