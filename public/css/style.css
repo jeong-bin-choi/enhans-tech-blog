@@ -553,4 +553,5 @@ nav.main-nav {
   .site-header .bar { gap: 12px; }
   .tech-blog-label { display: none; }
   .header-actions { gap: 10px; }
+  .site-header .bar { min-height: 60px; }
 }
